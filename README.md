@@ -44,6 +44,16 @@ python -m gerador "Tema" --so-roteiro                      # gera só o roteiro.
 python -m gerador --roteiro saida/<titulo>/roteiro.json    # renderiza a partir dele
 ```
 
+### Vídeos da empresa
+
+O arquivo `marca.md` descreve a empresa (o que faz, diferenciais, público, tom e chamada
+para ação). Se ele existir, todo roteiro é escrito na voz da empresa e só com os fatos
+que estão ali. Edite-o à vontade; use `--sem-marca` para um vídeo genérico.
+
+```bash
+python -m gerador "O que é superfície de ataque externa e por que monitorar"
+```
+
 ### Opções
 
 | Opção | Padrão | O que faz |
@@ -54,4 +64,6 @@ python -m gerador --roteiro saida/<titulo>/roteiro.json    # renderiza a partir 
 | `--velocidade` | `+0%` | Velocidade da fala, por exemplo `+10%` |
 | `--roteiro` | — | Usa um `roteiro.json` pronto em vez de gerar outro |
 | `--so-roteiro` | — | Gera só o roteiro |
+| `--marca` | `marca.md` | Arquivo com a descrição da empresa |
+| `--sem-marca` | — | Ignora o arquivo de marca |
 | `--modelo` | `claude-opus-5-5` | Modelo do Claude usado no roteiro |

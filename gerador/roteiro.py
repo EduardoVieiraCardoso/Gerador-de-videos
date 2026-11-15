@@ -33,14 +33,26 @@ Cada cena tem de uma a duas frases (cerca de 5 a 8 segundos de fala) e uma busca
 de vídeo de banco que mostre algo concreto e filmável, nunca conceitos abstratos."""
 
 
-def gerar_roteiro(tema: str, duracao: int, formato: str, modelo: str = MODELO) -> Roteiro:
+MARCA = """
+
+O vídeo é da empresa descrita abaixo. Fale como ela, para o público dela, e use
+apenas os fatos descritos aqui: não invente números, clientes, recursos ou
+resultados. Encerre com a chamada para ação da empresa, se houver.
+
+<empresa>
+{marca}
+</empresa>"""
+
+
+def gerar_roteiro(tema: str, duracao: int, formato: str, modelo: str = MODELO,
+                  marca: str | None = None) -> Roteiro:
     palavras = round(duracao * PALAVRAS_POR_SEGUNDO)
     tipo = "vertical curto (Reels/TikTok/Shorts)" if formato == "vertical" else "horizontal para YouTube"
     cliente = anthropic.Anthropic()
     resposta = cliente.beta.messages.parse(
         model=modelo,
         max_tokens=16000,
-        system=SISTEMA,
+        system=SISTEMA + (MARCA.format(marca=marca) if marca else ""),
         output_config={"effort": "medium"},
         output_format=Roteiro,
         # Se o modelo principal recusar o pedido, a API tenta de novo em um modelo reserva.

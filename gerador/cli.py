@@ -39,6 +39,9 @@ def main() -> None:
     p.add_argument("--roteiro", type=Path, help="usa um roteiro.json pronto (ou editado) em vez de gerar outro")
     p.add_argument("--so-roteiro", action="store_true", help="gera só o roteiro.json, para revisar antes de renderizar")
     p.add_argument("--modelo", default=MODELO, help=f"modelo do Claude (padrão: {MODELO})")
+    p.add_argument("--marca", type=Path, default=Path("marca.md"),
+                   help="arquivo com a descrição da empresa, usado em todo roteiro (padrão: marca.md)")
+    p.add_argument("--sem-marca", action="store_true", help="ignora o arquivo de marca")
     p.add_argument("--saida", type=Path, default=Path("saida"), help="pasta de saída")
     args = p.parse_args()
     _carregar_env()
@@ -48,7 +51,11 @@ def main() -> None:
         print(f"Roteiro carregado: {roteiro.titulo} ({len(roteiro.cenas)} cenas)")
     elif args.tema:
         print("1/4 Escrevendo o roteiro com o Claude...")
-        roteiro = gerar_roteiro(args.tema, args.duracao, args.formato, args.modelo)
+        marca = None
+        if not args.sem_marca and args.marca.exists():
+            marca = args.marca.read_text(encoding="utf-8")
+            print(f"    usando a marca de {args.marca}")
+        roteiro = gerar_roteiro(args.tema, args.duracao, args.formato, args.modelo, marca)
         print(f"    {roteiro.titulo} ({len(roteiro.cenas)} cenas, {len(roteiro.texto.split())} palavras)")
     else:
         p.error("informe um tema ou --roteiro arquivo.json")
