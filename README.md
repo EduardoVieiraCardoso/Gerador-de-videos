@@ -54,6 +54,16 @@ que estão ali. Edite-o à vontade; use `--sem-marca` para um vídeo genérico.
 python -m gerador "O que é superfície de ataque externa e por que monitorar"
 ```
 
+### Roteiros prontos
+
+A pasta `roteiros/` guarda roteiros escritos à mão e conferidos com as fontes (campo
+`fontes` do arquivo). Cada cena tem `narracao`, `busca` (imagem de banco) e `destaque`
+(texto fixo no topo da tela, como uma data; pode ficar vazio).
+
+```bash
+python -m gerador --roteiro roteiros/timeline-ataques-2026.json
+```
+
 ### Opções
 
 | Opção | Padrão | O que faz |

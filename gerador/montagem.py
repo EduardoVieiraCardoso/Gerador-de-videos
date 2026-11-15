@@ -35,11 +35,13 @@ def _tempo(s: float) -> str:
     return f"{cs // 360000}:{cs // 6000 % 60:02d}:{cs // 100 % 60:02d}.{cs % 100:02d}"
 
 
-def escrever_legenda(palavras: list[Palavra], destino: Path, formato: str) -> None:
-    """Legenda ASS queimada no vídeo, em blocos curtos sincronizados com a fala."""
+def escrever_legenda(palavras: list[Palavra], destino: Path, formato: str,
+                     destaque: str = "", duracao: float = 0.0) -> None:
+    """Legenda ASS queimada no vídeo: fala em blocos curtos e, se houver, um destaque fixo no topo."""
     largura, altura = TAMANHOS[formato]
     vertical = formato == "vertical"
     fonte, margem, por_bloco = (78, 420, 3) if vertical else (64, 90, 6)
+    topo = 260 if vertical else 70
     linhas = [
         "[Script Info]", "ScriptType: v4.00+", f"PlayResX: {largura}", f"PlayResY: {altura}",
         "WrapStyle: 0", "ScaledBorderAndShadow: yes", "",
@@ -48,16 +50,22 @@ def escrever_legenda(palavras: list[Palavra], destino: Path, formato: str) -> No
         "Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, "
         "Shadow, Alignment, MarginL, MarginR, MarginV, Encoding",
         f"Style: Fala,Arial,{fonte},&H00FFFFFF,&H00FFFFFF,&H00000000,&H96000000,"
-        f"-1,0,0,0,100,100,0,0,1,5,2,2,80,80,{margem},1", "",
+        f"-1,0,0,0,100,100,0,0,1,5,2,2,80,80,{margem},1",
+        # Caixa opaca (BorderStyle 3) no topo, para datas e nomes.
+        f"Style: Destaque,Arial,{round(fonte * 0.8)},&H00FFFFFF,&H00FFFFFF,&H00301A0F,&H00000000,"
+        f"-1,0,0,0,100,100,2,0,3,18,0,8,80,80,{topo},1", "",
         "[Events]",
         "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text",
     ]
+    limpar = lambda t: t.replace("{", "(").replace("}", ")")
+    if destaque.strip():
+        linhas.append(f"Dialogue: 1,{_tempo(0)},{_tempo(duracao + RESPIRO)},Destaque,,0,0,0,,{limpar(destaque.strip())}")
     blocos = [palavras[i:i + por_bloco] for i in range(0, len(palavras), por_bloco)]
     for i, bloco in enumerate(blocos):
         inicio = bloco[0][0]
         # Segura o bloco na tela até o próximo começar, para a legenda não piscar.
         fim = blocos[i + 1][0][0] if i + 1 < len(blocos) else bloco[-1][1] + 0.2
-        texto = " ".join(p[2] for p in bloco).replace("{", "(").replace("}", ")")
+        texto = limpar(" ".join(p[2] for p in bloco))
         linhas.append(f"Dialogue: 0,{_tempo(inicio)},{_tempo(fim)},Fala,,0,0,0,,{texto}")
     destino.write_text("\n".join(linhas) + "\n", encoding="utf-8")
 

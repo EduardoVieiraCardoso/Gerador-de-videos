@@ -1,0 +1,58 @@
+{
+  "titulo": "Linha do tempo: os grandes ataques hackers de 2026",
+  "cenas": [
+    {
+      "narracao": "Em seis meses, ataques hackers pararam nuvens, expuseram países inteiros e chegaram ao maior porto do Brasil. Veja a linha do tempo.",
+      "busca": "hacker dark room computer",
+      "destaque": "ATAQUES DE 2026"
+    },
+    {
+      "narracao": "Maio. A Instructure confirma uma invasão ao Canvas, plataforma usada por milhares de escolas. O grupo ShinyHunters afirma ter dados de duzentos e setenta e cinco milhões de pessoas.",
+      "busca": "students laptop classroom",
+      "destaque": "MAI · Canvas"
+    },
+    {
+      "narracao": "Setembro. Na Dinamarca, alguém abusa do acesso legítimo de uma empresa privada ao registro nacional de população. Cerca de oito vírgula oito milhões de registros são consultados.",
+      "busca": "copenhagen city street people",
+      "destaque": "SET · Dinamarca"
+    },
+    {
+      "narracao": "Sete de outubro. Um ransomware derruba parte da nuvem da IDC Frontier, do grupo SoftBank, no Japão. Quatrocentas e noventa e cinco empresas e governos locais são afetados.",
+      "busca": "data center servers",
+      "destaque": "OUT · Japão"
+    },
+    {
+      "narracao": "Novembro. A Maersk confirma um vazamento a partir de um sistema antigo, herdado de uma aquisição. Um grupo de ransomware exige cinco milhões de dólares.",
+      "busca": "container ship port",
+      "destaque": "NOV · Maersk"
+    },
+    {
+      "narracao": "E chega ao Brasil. No dia seis de novembro, um ataque compromete sistemas do Porto de Santos, e a Polícia Federal abre inquérito.",
+      "busca": "cargo port cranes containers",
+      "destaque": "NOV · Porto de Santos"
+    },
+    {
+      "narracao": "Na mesma onda, a Caixa Vida e Previdência informa a exposição de dados de sete vírgula seis milhões de clientes, e o Tesouro Nacional relata acesso indevido a cerca de trinta mil cadastros.",
+      "busca": "bank building city",
+      "destaque": "NOV · Brasil"
+    },
+    {
+      "narracao": "O ponto em comum? Um acesso de terceiro, um sistema esquecido, um serviço exposto. Quase sempre, a porta já estava aberta.",
+      "busca": "open door dark corridor",
+      "destaque": ""
+    },
+    {
+      "narracao": "Você sabe o que a sua empresa expõe na internet hoje? Conheça a SentinelHub, em sentinelhub ponto com ponto br.",
+      "busca": "cybersecurity analyst monitors",
+      "destaque": "sentinelhub.com.br"
+    }
+  ],
+  "fontes": [
+    "https://www.bitdefender.com/en-us/blog/businessinsights/technical-advisory-shinyhunters-breach-instructure-canvas-lms",
+    "https://www.bleepingcomputer.com/news/security/denmark-population-registry-data-breach-affects-88-million-people/amp/",
+    "https://www.bleepingcomputer.com/news/security/ransomware-attack-disrupts-japans-idcf-cloud-used-by-govt-clients/",
+    "https://www.bleepingcomputer.com/news/security/maersk-confirms-data-breach-as-whitearmor-ransomware-demands-5-million/",
+    "https://investnews.com.br/negocios/ataque-hacker-porto-de-santos/",
+    "https://www.correiobraziliense.com.br/economia/2026/11/7537711-onda-de-ataques-hackers-acende-alerta-em-grandes-servicos-no-brasil.html"
+  ]
+}

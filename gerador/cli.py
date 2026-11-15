@@ -85,7 +85,7 @@ def main() -> None:
         duracao = voz.duracao(audio)
         legenda = trabalho / f"{i:02d}.ass"
         montagem.escrever_legenda(palavras or montagem.estimar_palavras(cena.narracao, duracao),
-                                  legenda, args.formato)
+                                  legenda, args.formato, cena.destaque, duracao)
         midia = pexels.buscar(cena.busca, trabalho / f"{i:02d}_fundo", lado_menor)
         segmento = trabalho / f"{i:02d}_cena.mp4"
         montagem.montar_cena(i, midia, audio, legenda, duracao, args.formato, segmento)

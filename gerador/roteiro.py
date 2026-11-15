@@ -15,6 +15,12 @@ class Cena(BaseModel):
     )
 
 
+    destaque: str = Field(
+        description="Texto curto fixo no topo da tela durante a cena, como uma data ou um nome "
+        "(ex.: 'OUT 2026 · Japão'). No máximo 30 caracteres; string vazia se a cena não precisar."
+    )
+
+
 class Roteiro(BaseModel):
     titulo: str
     cenas: list[Cena]
@@ -30,7 +36,8 @@ sem emojis, sem hashtags, sem marcações de cena, sem siglas difíceis de pronu
 e com números por extenso. A primeira cena é um gancho que prende a atenção nos
 primeiros segundos; a última fecha a ideia com uma conclusão ou chamada para ação.
 Cada cena tem de uma a duas frases (cerca de 5 a 8 segundos de fala) e uma busca
-de vídeo de banco que mostre algo concreto e filmável, nunca conceitos abstratos."""
+de vídeo de banco que mostre algo concreto e filmável, nunca conceitos abstratos.
+Em vídeos de linha do tempo ou lista, use o destaque de cada cena para a data ou o item."""
 
 
 MARCA = """
