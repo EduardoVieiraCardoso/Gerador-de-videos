@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Linha do tempo: os grandes ataques hackers de 2026</title>
+<style>
+  :root { --fundo:#0a1020; --painel:#111a30; --linha:#24324f; --texto:#e8eefc; --suave:#93a3c4;
+          --ciano:#3ad6e6; --alerta:#ff5d5d; --ambar:#ffb547; }
+  * { box-sizing: border-box; margin: 0; }
+  body { width: 1080px; background: var(--fundo); color: var(--texto);
+         font-family: Inter, "Helvetica Neue", Arial, sans-serif; padding: 72px 64px 56px;
+         background-image: radial-gradient(900px 500px at 85% -5%, #16305a 0%, transparent 70%); }
+  .selo { display:inline-block; font-size: 22px; font-weight: 700; letter-spacing: 4px; color: var(--ciano);
+          border: 2px solid var(--ciano); border-radius: 8px; padding: 8px 16px; }
+  h1 { font-size: 76px; line-height: 1.02; font-weight: 800; letter-spacing: -2px; margin: 28px 0 18px; }
+  h1 em { font-style: normal; color: var(--alerta); }
+  .sub { font-size: 28px; color: var(--suave); line-height: 1.35; max-width: 860px; }
+
+  .linha { position: relative; margin: 56px 0 0; padding-left: 196px; }
+  .linha::before { content:""; position:absolute; left: 150px; top: 14px; bottom: 14px; width: 4px;
+                   background: linear-gradient(var(--ciano), var(--alerta)); border-radius: 2px; }
+  .item { position: relative; background: var(--painel); border: 1px solid var(--linha);
+          border-radius: 20px; padding: 26px 30px 24px; margin-bottom: 22px; }
+  .item::before { content:""; position:absolute; left: -58px; top: 34px; width: 24px; height: 24px;
+                  border-radius: 50%; background: var(--fundo); border: 5px solid var(--ciano); }
+  .item.br::before { border-color: var(--alerta); }
+  .quando { position:absolute; left: -196px; top: 28px; width: 122px; text-align: right;
+            font-size: 26px; font-weight: 800; letter-spacing: 1px; line-height: 1.1; }
+  .quando small { display:block; font-size: 18px; font-weight: 600; color: var(--suave); letter-spacing: 0; margin-top: 4px; }
+  .topo { display:flex; justify-content: space-between; align-items: baseline; gap: 20px; }
+  .nome { font-size: 34px; font-weight: 800; letter-spacing: -0.5px; }
+  .pais { font-size: 19px; font-weight: 700; color: var(--suave); letter-spacing: 2px; white-space: nowrap; }
+  .br .pais { color: var(--alerta); }
+  .corpo { display:flex; gap: 26px; margin-top: 14px; align-items: center; }
+  .num { flex: 0 0 236px; }
+  .num b { display:block; white-space: nowrap; font-size: 54px; font-weight: 800; letter-spacing: -2px; line-height: 1; color: var(--ciano); }
+  .br .num b { color: var(--alerta); }
+  .num span { display:block; font-size: 19px; color: var(--suave); margin-top: 8px; line-height: 1.25; }
+  .txt { font-size: 22px; line-height: 1.38; color: #c9d4ee; }
+  .porta { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--linha);
+           font-size: 20px; color: var(--suave); }
+  .porta b { color: var(--ambar); font-weight: 700; }
+
+  .ia { margin-top: 34px; display:flex; gap: 34px; align-items:center; background: #0e1a12;
+        border: 1px solid #23513a; border-radius: 20px; padding: 30px 34px; }
+  .ia .zero { white-space: nowrap; font-size: 132px; font-weight: 800; line-height: .9; letter-spacing: -6px; color: #5fe39a; }
+  .ia .zero small { font-size: 44px; letter-spacing: -1px; color: #9fd9b9; }
+  .ia h2 { font-size: 34px; font-weight: 800; line-height: 1.15; }
+  .ia p { font-size: 21px; color: #a9c9b8; line-height: 1.4; margin-top: 10px; }
+
+  .comum { margin-top: 22px; }
+  .comum h3 { font-size: 22px; letter-spacing: 3px; color: var(--suave); font-weight: 700; margin-bottom: 14px; }
+  .portas { display:flex; gap: 16px; }
+  .portas div { flex:1; background: var(--painel); border: 1px solid var(--linha); border-left: 6px solid var(--ambar);
+                border-radius: 14px; padding: 20px 22px; font-size: 25px; font-weight: 700; line-height: 1.2; }
+  .portas small { display:block; font-size: 18px; font-weight: 500; color: var(--suave); margin-top: 8px; line-height: 1.3; }
+
+  footer { margin-top: 40px; display:flex; justify-content: space-between; align-items: flex-end; gap: 30px; }
+  .cta { font-size: 30px; font-weight: 800; }
+  .cta span { display:block; font-size: 20px; font-weight: 500; color: var(--suave); margin-bottom: 6px; }
+  .cta i { font-style: normal; color: var(--ciano); }
+  .fontes { font-size: 15px; color: #6f7fa1; line-height: 1.45; max-width: 520px; text-align: right; }
+</style>
+</head>
+<body>
+  <span class="selo">SENTINELHUB</span>
+  <h1>Os grandes ataques hackers de <em>2026</em></h1>
+  <p class="sub">Seis incidentes de maio a novembro, o tamanho de cada um e a porta por onde o invasor entrou.</p>
+
+  <div class="linha">
+    <div class="item">
+      <div class="quando">MAI</div>
+      <div class="topo"><div class="nome">Canvas (Instructure)</div><div class="pais">EUA · EDUCAÇÃO</div></div>
+      <div class="corpo">
+        <div class="num"><b>275 mi</b><span>de pessoas, segundo o grupo invasor</span></div>
+        <div class="txt">A empresa confirma a invasão à plataforma usada por milhares de escolas. O número é alegação do ShinyHunters, não confirmado.</div>
+      </div>
+      <div class="porta">Porta de entrada: <b>falha ligada a contas gratuitas para professores</b></div>
+    </div>
+
+    <div class="item">
+      <div class="quando">SET</div>
+      <div class="topo"><div class="nome">Registro de população</div><div class="pais">DINAMARCA · GOVERNO</div></div>
+      <div class="corpo">
+        <div class="num"><b>8,8 mi</b><span>de registros consultados (número não final)</span></div>
+        <div class="txt">Nomes, endereços e números de identidade são extraídos do cadastro nacional em milhões de consultas.</div>
+      </div>
+      <div class="porta">Porta de entrada: <b>acesso legítimo de uma empresa privada</b></div>
+    </div>
+
+    <div class="item">
+      <div class="quando">7 OUT</div>
+      <div class="topo"><div class="nome">IDCF Cloud (SoftBank)</div><div class="pais">JAPÃO · NUVEM</div></div>
+      <div class="corpo">
+        <div class="num"><b>495</b><span>empresas e governos locais afetados</span></div>
+        <div class="txt">Um ransomware derruba parte da nuvem da IDC Frontier, com efeitos em ferrovias e órgãos públicos.</div>
+      </div>
+      <div class="porta">Porta de entrada: <b>não divulgada</b></div>
+    </div>
+
+    <div class="item">
+      <div class="quando">NOV</div>
+      <div class="topo"><div class="nome">Maersk</div><div class="pais">DINAMARCA · LOGÍSTICA</div></div>
+      <div class="corpo">
+        <div class="num"><b>US$ 5 mi</b><span>exigidos pelo grupo de ransomware</span></div>
+        <div class="txt">A empresa confirma a extração de dados e diz não ter evidência de exposição de informações sensíveis.</div>
+      </div>
+      <div class="porta">Porta de entrada: <b>sistema antigo herdado de uma aquisição</b></div>
+    </div>
+
+    <div class="item br">
+      <div class="quando">6 NOV</div>
+      <div class="topo"><div class="nome">Porto de Santos</div><div class="pais">BRASIL · INFRAESTRUTURA</div></div>
+      <div class="corpo">
+        <div class="num"><b>Nº 1</b><span>maior porto do país, com sistemas de TI afetados</span></div>
+        <div class="txt">O ataque aparece após uma queda de energia. A circulação de navios segue normal e a Polícia Federal abre inquérito.</div>
+      </div>
+      <div class="porta">Porta de entrada: <b>malware que já estava na rede</b></div>
+    </div>
+
+    <div class="item br">
+      <div class="quando">NOV</div>
+      <div class="topo"><div class="nome">Caixa Vida e Tesouro Nacional</div><div class="pais">BRASIL · FINANÇAS</div></div>
+      <div class="corpo">
+        <div class="num"><b>7,6 mi</b><span>de clientes com dados expostos na Caixa Vida</span></div>
+        <div class="txt">No Tesouro, acesso indevido a cerca de 30 mil cadastros e 4 mil chaves Pix. Os dois informam que não houve prejuízo financeiro.</div>
+      </div>
+      <div class="porta">Porta de entrada: <b>em apuração</b></div>
+    </div>
+  </div>
+
+  <div class="ia">
+    <div class="zero">0<small> de 6</small></div>
+    <div>
+      <h2>com uso de inteligência artificial confirmado</h2>
+      <p>Nenhuma das fontes consultadas atribui esses ataques à IA. Os casos de 2026 com IA relatada são outros.</p>
+    </div>
+  </div>
+
+  <div class="comum">
+    <h3>O PONTO EM COMUM</h3>
+    <div class="portas">
+      <div>Acesso de terceiros<small>Dinamarca</small></div>
+      <div>Sistema esquecido<small>Maersk</small></div>
+      <div>Serviço exposto<small>Canvas</small></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="cta"><span>Você sabe o que a sua empresa expõe na internet?</span><i>sentinelhub.com.br</i></div>
+    <div class="fontes">Dados até 16 nov. 2026; investigações em andamento.<br>Fontes: Bitdefender, BleepingComputer, Cybernews, InvestNews, Correio Braziliense, Convergência Digital, CryptoID.</div>
+  </footer>
+</body>
+</html>
